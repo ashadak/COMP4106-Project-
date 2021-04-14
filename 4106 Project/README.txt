@@ -12,7 +12,7 @@ Instructions:
 
 pip install numpy
 sudo apt-get install python3-tk
-python3 test.py
+python3 multu_test.py
 Use the gui to place blocks and agents
 
 Summary:
