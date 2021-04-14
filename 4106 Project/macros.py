@@ -18,6 +18,13 @@ FRAME_WIDTH = 600
 FRAME_MARGIN = 10
 CELL_MARGIN = 5
 
+MAX_ROWS = 10
+MIN_ROWS = 1
+MAX_COLUMNS = 10
+MIN_COLUMNS = 1
+
+MAX_AGENTS = 7
+
 class Next_step(object):
     RIGHT = 0
     UP = 1
@@ -25,4 +32,4 @@ class Next_step(object):
     DOWN = 3
     WAIT = 4
 
-COLORS = ['red', 'green', 'blue', 'black', 'white', 'magenta', 'cyan', 'yellow']
+COLORS = ['lightcoral', 'orange', 'lime', 'royalblue', 'hotpink', 'red', 'green', 'magenta', 'cyan', 'yellow']
