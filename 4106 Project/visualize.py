@@ -41,7 +41,7 @@ class Visualize:
                     self.aindx_obj[cell] = self.canvas.create_oval(x1, y1, x2, y2, fill=COLORS[cell])
                     gy, gx = self.world.a_goal[cell]
                     goal_cell = self.vis_cells[gy][gx]
-                    self.canvas.itemconfig(goal_cell, outline=COLORS[cell], width=4)
+                    self.canvas.itemconfig(goal_cell, fill=COLORS[cell], width=4)
 
     def update_agent_vis(self, aindx):
         cy, cx = self.world.a_cpos[aindx]
