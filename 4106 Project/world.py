@@ -40,11 +40,11 @@ class World:
 
     #check is cell is a block
     def is_blocked(self, y, x):
-        # print 'Cell :', y, x
         if not self.is_validpos(y, x): return True
         if (self.cells[y][x] == IS_BLOCK): return True
         return False
 
+    #Add a block to the grid.
     def add_blocks(self, blocks):
         if blocks:
             for block in blocks:
@@ -87,7 +87,7 @@ class World:
         next_steps = []
         cy, cx = self.a_cpos[a_index]
         for step in path:
-            nexty, nextx = step[0], step[1]
+            nexty, nextx = step[len(step) - 2], step[len(step) - 1]
             if (nextx - cx == 1): next_step = Next_step.RIGHT
             elif (nextx - cx == -1): next_step = Next_step.LEFT
             elif (nexty - cy == 1): next_step = Next_step.DOWN
@@ -100,6 +100,7 @@ class World:
 
     def get_nbor_cells(self, cell_pos):
         nbor_cells = []
+        #check if we're dealing with t, y, x or just y, x
         if(len(cell_pos) == 3):
             #cell_pos has time, y coordinate and x coordinate
             t, y, x = cell_pos[0], cell_pos[1], cell_pos[2]
@@ -174,6 +175,38 @@ class World:
             return 0
         return -1
 
+    #Helper function to determine wether a cell is passable of if an agent blocks it
+    def passable(self, cell, constraints):
+        rn = False
+        if (len(cell) == 3):
+            t, y, x = cell[0], cell[1], cell[2]
+            if (self.is_blocked(y,x)):
+                rn = False
+            elif (t > tLIMIT):
+                rn = False
+            elif (bool(constraints)):
+                if (cell in constraints):
+                    rn = False
+                else:
+                    rn = True
+            else:
+                rn = True
+            return rn
+        elif (len(cell) == 2):
+            y, x = cell[0], cell[1]
+            if (self.is_blocked(y,x)):
+                rn = False
+            elif (bool(constraints)):
+                if (cell in constraints):
+                    rn = False
+                else:
+                    rn = True
+            else:
+                rn = True
+            return rn
+
+    #This heuristic takes into account how much time it take for an agent to
+    #reach it's goal. the lower time, the better, but contraints raise the time.
     def tyx_heuristic(self, a, b):
         yx_distance = abs(a[1] - b[1]) + abs(a[2] + b[2])
         if (a[0] == ANY_TIME or b[0] == ANY_TIME):
