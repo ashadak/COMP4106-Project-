@@ -12,7 +12,7 @@ Instructions:
 
 pip install numpy
 sudo apt-get install python3-tk
-python3 multu_test.py
+python3 multi_test.py
 
 The program will prompt the user with a window (First Setup) in which they can
 enter the amount of rows and columns they want for the later test.
