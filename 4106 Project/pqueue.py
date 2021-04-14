@@ -34,61 +34,8 @@ def _children(i):
     return (_lchild(i), _rchild(i))
 
 class PQueue:
-    """
-    Priority queue implemented with dictionaries. Stores a set of keys and associated priorities.
+    #Priority queue implemented with dictionaries. Stores a set of keys and associated priorities.
 
-    >>> q = PQueue()
-    >>> q.is_empty()
-    True
-    >>> q.update("thing", 5)
-    True
-    >>> q.is_empty()
-    False
-    >>> q.update("another thing", 2)
-    True
-    >>> q.pop_smallest()
-    ('another thing', 2)
-    >>> q.update("thing", 100)
-    False
-    >>> q.update("something else", 110)
-    True
-    >>> q.update("something else", 8)
-    True
-    >>> "thing" in q
-    True
-    >>> "nothing" in q
-    False
-    >>> len(q)
-    2
-    >>> q.peek_smallest()
-    ('thing', 5)
-    >>> q.pop_smallest()
-    ('thing', 5)
-    >>> q.pop_smallest()
-    ('something else', 8)
-    >>> True if q else False
-    False
-    >>> q.is_empty()
-    True
-    >>> q.tie_breaker = lambda x,y: x[1] < y[1]
-    >>> q.update(("A", 6), 5)
-    True
-    >>> q.update(("B", 1), 5)
-    True
-    >>> q.update(("C", 10), 1)
-    True
-    >>> q.update(("D", 4), 5)
-    True
-    >>> q.pop_smallest()[0][0]
-    'C'
-    >>> q.pop_smallest()[0][0]
-    'B'
-    >>> q.pop_smallest()[0][0]
-    'D'
-    >>> q.pop_smallest()[0][0]
-    'A'
-
-    """
     def __init__(self):
         self._heap = []
         self._keyindex = {}
@@ -161,12 +108,6 @@ class PQueue:
             self._swap(i, parent)
             self._heapify_up(parent)
 
-    def peek_smallest(self):
-        """
-        Returns a tuple containing the key with the smallest priority and its associated priority.
-        """
-        return self._heap[0]
-
     def pop_smallest(self):
         """
         Removes the key with the smallest priority and returns a tuple containing the key and its associated priority
@@ -211,9 +152,3 @@ class PQueue:
             self._keyindex[key] = len(self._heap) - 1
             self._heapify_up(len(self._heap) - 1)
             return True
-
-    def is_empty(self):
-        """
-        Returns True if the queue is empty empty, else False.
-        """
-        return len(self) == 0
