@@ -38,10 +38,10 @@ class Visualize:
                 cell = self.world.cells[crow][ccol]
                 if( cell != UNOCCUPIED and not self.world.is_blocked(crow, ccol) ):
                     y1, x1, y2, x2 = self.get_pos_in_cell(crow, ccol)
-                    self.aindx_obj[cell] = self.canvas.create_oval(x1, y1, x2, y2, fill=COLORS[cell])
+                    self.aindx_obj[cell] = self.canvas.create_oval(x1, y1, x2, y2, fill=COLORS[cell-1])
                     gy, gx = self.world.a_goal[cell]
                     goal_cell = self.vis_cells[gy][gx]
-                    self.canvas.itemconfig(goal_cell, fill=COLORS[cell], width=4)
+                    self.canvas.itemconfig(goal_cell, fill=COLORS[cell-1], width=4)
 
     def update_agent_vis(self, aindx):
         cy, cx = self.world.a_cpos[aindx]
