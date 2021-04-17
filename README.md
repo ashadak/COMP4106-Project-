@@ -2,7 +2,7 @@
 Make sure to have the modules: numpy
                                tkinter
 
-Run 'multi_test.py'
+Run 'python3 multi_test.py'
 
 The program will prompt the user with a window (First Setup) in which they can
 enter the amount of rows and columns they want for the later test.
