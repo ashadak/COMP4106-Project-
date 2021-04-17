@@ -30,7 +30,7 @@ The program will now prompt the user with a window (Second Setup) in which they
 can setup the location and number of walls, as well as the agents' start and goal
 states.
 
-To set up walls, the user will first have to click the 'WALL' button then click on
+To set up walls, the user will first have to click the 'BLOCK' button then click on
 any of the buttons with the label 'O'. The user will know they have succeeded once
 the label becomes 'X' and the color turn grey. They can undo this by simply re-clicking
 that button.
