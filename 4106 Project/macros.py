@@ -23,7 +23,7 @@ MIN_ROWS = 1
 MAX_COLUMNS = 10
 MIN_COLUMNS = 1
 
-MAX_AGENTS = 7
+MAX_AGENTS = 6
 
 class Next_step(object):
     RIGHT = 0
